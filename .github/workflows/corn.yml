@@ -1,0 +1,16 @@
+name: Trigger PHP Script
+
+on:
+  schedule:
+    - cron: '*/5 * * * *' # Runs every 5 minutes
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  trigger-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Make HTTP Request to PHP Script
+        run: |
+          curl -X GET "https://synops.dev/cornjobs/fetch_api_data.php" \
+          -H "User-Agent: GitHub-Actions-Cron" \
+          -w "\nHTTP Status: %{http_code}\n"
