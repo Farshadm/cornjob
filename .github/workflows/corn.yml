@@ -2,7 +2,7 @@ name: Trigger PHP Script
 
 on:
   schedule:
-    - cron: '2 */5 * * * *' # Runs every 5 minutes at 2, 7, 12, etc., minutes past
+    - cron: '*/5 * * * *' # Runs every 5 minutes at 2, 7, 12, etc., minutes past
   workflow_dispatch: # Allows manual triggering
 
 jobs:
